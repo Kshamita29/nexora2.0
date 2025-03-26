@@ -2,7 +2,7 @@ import React from "react";
 
 const TermsAndConditions = () => {
     return (
-        <section className="p-8 text-left bg-gray-100 min-h-screen">
+        <section className="p-8 text-left w-screen bg-gray-100 min-h-screen">
             <div className="bg-white p-8 shadow-lg rounded-lg max-w-4xl mx-auto">
                 <h1 className="text-4xl font-bold mb-6 text-center">Terms and Conditions</h1>
                 

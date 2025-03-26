@@ -1,7 +1,37 @@
-import React from "react";
-import { FaChartLine, FaLaptopCode, FaShieldAlt, FaDatabase, FaSearch, FaHeadset, FaQuoteLeft } from "react-icons/fa";
+import React, { useState, useEffect, useRef } from "react";
+import { FaChartLine, FaLaptopCode, FaShieldAlt, FaDatabase, FaSearch, FaHeadset } from "react-icons/fa";
+
+const testimonials = [
+    { text: "Nexora transformed our business operations with their cutting-edge solutions. Highly recommended!", name: "John Doe, CEO of TechCorp", image: "https://randomuser.me/api/portraits/men/1.jpg" },
+    { text: "Their support team is outstanding! Nexora helped us scale effortlessly.", name: "Sarah Smith, Founder of InnovateX", image: "https://randomuser.me/api/portraits/women/2.jpg" },
+    { text: "From security to analytics, Nexora exceeded our expectations.", name: "Michael Lee, CTO of SecureNet", image: "https://randomuser.me/api/portraits/men/3.jpg" },
+    { text: "Excellent service and attention to detail. They truly understand business needs.", name: "Emily Johnson, Director at MarketFlow", image: "https://randomuser.me/api/portraits/women/4.jpg" }
+];
 
 const Services = () => {
+    const [index, setIndex] = useState(0);
+    const [visibleCount, setVisibleCount] = useState(1);
+    const sliderRef = useRef(null);
+
+    useEffect(() => {
+        const updateVisibleCount = () => {
+            if (window.innerWidth >= 1024) setVisibleCount(3);
+            else if (window.innerWidth >= 768) setVisibleCount(2);
+            else setVisibleCount(1);
+        };
+
+        updateVisibleCount();
+        window.addEventListener("resize", updateVisibleCount);
+        return () => window.removeEventListener("resize", updateVisibleCount);
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <section className="p-8 w-screen">
             {/* Introduction */}
@@ -14,82 +44,45 @@ const Services = () => {
 
             {/* Services Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
-                {/* Business Insights */}
-                <div className="p-6 bg-white shadow-lg rounded-lg border-l-4 border-blue-600 flex items-start">
-                    <FaChartLine className="text-blue-600 text-4xl mr-4" />
-                    <div>
-                        <h3 className="text-xl font-semibold">Business Insights</h3>
-                        <p className="mt-2 text-gray-700 text-sm">Empowering businesses with data-driven intelligence, we deliver actionable insights tailored for individual entrepreneurs and local organizations.</p>
+                {[
+                    { title: "Business Insights", icon: <FaChartLine className="text-blue-600 text-4xl mr-4" />, desc: "Empowering businesses with data-driven intelligence, we deliver actionable insights tailored for individual entrepreneurs and local organizations.", border: "border-blue-600" },
+                    { title: "Web Applications", icon: <FaLaptopCode className="text-green-600 text-4xl mr-4" />, desc: "We create dynamic e-business platforms designed to establish a strong online presence and expand global reach.", border: "border-green-600" },
+                    { title: "Software Security", icon: <FaShieldAlt className="text-red-600 text-4xl mr-4" />, desc: "Protecting your most sensitive and confidential data is our priority. We implement advanced database security, encryption, and firewall systems.", border: "border-red-600" },
+                    { title: "Enterprise Database Solutions", icon: <FaDatabase className="text-purple-600 text-4xl mr-4" />, desc: "We develop scalable, high-performance enterprise data warehouses that integrate and centralize organizational data.", border: "border-purple-600" },
+                    { title: "Research-Based Solutions", icon: <FaSearch className="text-yellow-600 text-4xl mr-4" />, desc: "We provide customized, industry-specific solutions backed by in-depth research and analytics.", border: "border-yellow-600" },
+                    { title: "24/7 Technical Support", icon: <FaHeadset className="text-indigo-600 text-4xl mr-4" />, desc: "Our commitment extends beyond development. We offer round-the-clock technical support throughout the contract period.", border: "border-indigo-600" }
+                ].map((service, index) => (
+                    <div key={index} className={`p-6 bg-white shadow-lg rounded-lg border-l-4 ${service.border} flex items-start`}>
+                        {service.icon}
+                        <div>
+                            <h3 className="text-xl font-semibold">{service.title}</h3>
+                            <p className="mt-2 text-gray-700 text-sm">{service.desc}</p>
+                        </div>
                     </div>
-                </div>
-
-                {/* Web Applications */}
-                <div className="p-6 bg-white shadow-lg rounded-lg border-l-4 border-green-600 flex items-start">
-                    <FaLaptopCode className="text-green-600 text-4xl mr-4" />
-                    <div>
-                        <h3 className="text-xl font-semibold">Web Applications</h3>
-                        <p className="mt-2 text-gray-700 text-sm">We create dynamic e-business platforms designed to establish a strong online presence and expand global reach.</p>
-                    </div>
-                </div>
-
-                {/* Software Security */}
-                <div className="p-6 bg-white shadow-lg rounded-lg border-l-4 border-red-600 flex items-start">
-                    <FaShieldAlt className="text-red-600 text-4xl mr-4" />
-                    <div>
-                        <h3 className="text-xl font-semibold">Software Security</h3>
-                        <p className="mt-2 text-gray-700 text-sm">Protecting your most sensitive and confidential data is our priority. We implement advanced database security, encryption, and firewall systems.</p>
-                    </div>
-                </div>
-
-                {/* Enterprise Database Solutions */}
-                <div className="p-6 bg-white shadow-lg rounded-lg border-l-4 border-purple-600 flex items-start">
-                    <FaDatabase className="text-purple-600 text-4xl mr-4" />
-                    <div>
-                        <h3 className="text-xl font-semibold">Enterprise Database Solutions</h3>
-                        <p className="mt-2 text-gray-700 text-sm">We develop scalable, high-performance enterprise data warehouses that integrate and centralize organizational data.</p>
-                    </div>
-                </div>
-
-                {/* Research Based Solutions */}
-                <div className="p-6 bg-white shadow-lg rounded-lg border-l-4 border-yellow-600 flex items-start">
-                    <FaSearch className="text-yellow-600 text-4xl mr-4" />
-                    <div>
-                        <h3 className="text-xl font-semibold">Research-Based Solutions</h3>
-                        <p className="mt-2 text-gray-700 text-sm">We provide customized, industry-specific solutions backed by in-depth research and analytics.</p>
-                    </div>
-                </div>
-
-                {/* 24/7 Technical Support */}
-                <div className="p-6 bg-white shadow-lg rounded-lg border-l-4 border-indigo-600 flex items-start">
-                    <FaHeadset className="text-indigo-600 text-4xl mr-4" />
-                    <div>
-                        <h3 className="text-xl font-semibold">24/7 Technical Support</h3>
-                        <p className="mt-2 text-gray-700 text-sm">Our commitment extends beyond development. We offer round-the-clock technical support throughout the contract period.</p>
-                    </div>
-                </div>
+                ))}
             </div>
 
             {/* Testimonials Section */}
-            <div className="max-w-4xl mx-auto mt-16 text-center">
-                <h2 className="text-3xl font-bold text-blue-600">What Our Clients Say</h2>
-                <div className="mt-8 space-y-6">
-                    <div className="p-6 bg-gray-100 shadow-md rounded-lg">
-                        <FaQuoteLeft className="text-blue-600 text-3xl mb-2" />
-                        <p className="text-gray-700 italic">"Nexora transformed our business operations with their cutting-edge solutions. Highly recommended!"</p>
-                        <h4 className="mt-2 font-semibold">— John Doe, CEO of TechCorp</h4>
-                    </div>
-                    <div className="p-6 bg-gray-100 shadow-md rounded-lg">
-                        <FaQuoteLeft className="text-blue-600 text-3xl mb-2" />
-                        <p className="text-gray-700 italic">"Their support team is outstanding! Nexora helped us scale effortlessly."</p>
-                        <h4 className="mt-2 font-semibold">— Sarah Smith, Founder of InnovateX</h4>
-                    </div>
-                    <div className="p-6 bg-gray-100 shadow-md rounded-lg">
-                        <FaQuoteLeft className="text-blue-600 text-3xl mb-2" />
-                        <p className="text-gray-700 italic">"From security to analytics, Nexora exceeded our expectations."</p>
-                        <h4 className="mt-2 font-semibold">— Michael Lee, CTO of SecureNet</h4>
+            <section className="max-w-5xl mx-auto mt-16 text-center p-6">
+                <h2 className="text-3xl font-bold text-blue-600 mb-8">What Our Clients Say</h2>
+                <div className="overflow-hidden relative">
+                    <div
+                        ref={sliderRef}
+                        className="flex transition-transform duration-500 ease-in-out"
+                        style={{ transform: `translateX(-${index * (100 / visibleCount)}%)` }}
+                    >
+                        {[...testimonials, ...testimonials.slice(0, visibleCount)].map((testimonial, i) => (
+                            <div key={i} className="min-w-[calc(100%/3)] md:min-w-[calc(100%/2)] sm:min-w-full p-4">
+                                <div className="bg-white shadow-lg rounded-lg border-b-4 border-blue-500 p-6 flex flex-col items-center min-h-[250px]">
+                                    <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full mb-4" />
+                                    <p className="text-gray-700 italic">"{testimonial.text}"</p>
+                                    <h4 className="mt-4 font-semibold">— {testimonial.name}</h4>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
-            </div>
+            </section>
         </section>
     );
 };

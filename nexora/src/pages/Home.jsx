@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaCode, FaLightbulb, FaChartLine, FaCog, FaQuoteLeft, FaChevronLeft, FaChevronRight, FaFilter, FaBriefcase, FaUserCircle } from "react-icons/fa";
+import React from "react";
+import {Link} from "react-router-dom";
+import { FaCode, FaLightbulb, FaChartLine, FaCog } from "react-icons/fa";
 import bg1 from "../assets/bg1.jpg";
 import bg2 from "../assets/bg2.jpg";
 import bg3 from "../assets/bg3.jpg";
@@ -27,10 +27,10 @@ const slides = [
 ];
 
 const services = [
-  { icon: <FaCode className="text-blue-600 text-5xl" />, title: "Web & App Development", description: "We build dynamic, scalable, and high-performance web & mobile applications tailored to your needs." },
-  { icon: <FaLightbulb className="text-blue-600 text-5xl" />, title: "AI & Automation", description: "Leveraging AI to enhance efficiency and automate business processes seamlessly." },
-  { icon: <FaChartLine className="text-blue-600 text-5xl" />, title: "Business Intelligence", description: "Transform data into actionable insights with our BI solutions to drive growth." },
-  { icon: <FaCog className="text-blue-600 text-5xl" />, title: "Custom Software Solutions", description: "Bespoke software solutions designed to meet your unique business requirements." }
+  { icon: <FaCode className="text-red-500 text-5xl mx-auto" />, title: "Web & App Development", description: "We build dynamic, scalable, and high-performance web & mobile applications tailored to your needs." },
+  { icon: <FaLightbulb className="text-yellow-500 text-5xl mx-auto" />, title: "AI & Automation", description: "Leveraging AI to enhance efficiency and automate business processes seamlessly." },
+  { icon: <FaChartLine className="text-green-500 text-5xl mx-auto" />, title: "Business Intelligence", description: "Transform data into actionable insights with our BI solutions to drive growth." },
+  { icon: <FaCog className="text-purple-500 text-5xl mx-auto" />, title: "Custom Software Solutions", description: "Bespoke software solutions designed to meet your unique business requirements." }
 ];
 
 const testimonials = [
@@ -73,92 +73,49 @@ const caseStudies = [
     title: "Data Analytics Dashboard",
     category: "Business Intelligence",
     description: "Created a real-time analytics dashboard for decision-making.",
-    image: "https://picsum.photos/1200",
+    image: "https://picsum.photos/200",
     link: "/case-studies/data-analytics"
   }
 ];
 
-// Testimonials Component
-const Testimonials = () => {
-  return (
-    <section className="bg-gray-100 py-16 px-6 text-center">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-blue-600 mb-8">What Our Clients Say</h2>
-
-        {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="p-6 bg-white rounded-lg shadow-md text-center">
-              <div className="flex justify-center mb-4 relative">
-                <img
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-md"
-                  onError={(e) => {
-                    e.target.style.display = "none"; // Hide image
-                    e.target.nextSibling.style.display = "block"; // Show icon
-                  }}
-                />
-                <FaUserCircle className="absolute text-gray-400 text-6xl hidden" />
-              </div>
-              <p className="text-gray-700 italic text-lg leading-relaxed">"{testimonial.quote}"</p>
-              <h3 className="text-xl font-semibold mt-4 text-gray-800">{testimonial.name}</h3>
-              <p className="text-gray-500">{testimonial.role}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-
 const Home = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="relative w-screen w-full h-screen flex items-center justify-center text-center text-white transition-all duration-1000"
-        style={{ backgroundImage: `url(${slides[currentSlide].image})`, backgroundSize: "cover", backgroundPosition: "center" }}
-      >
-        <div className="bg-black bg-opacity-50 p-8 rounded-lg w-full max-w-none h-full flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold">{slides[currentSlide].caption}</h1>
-          <p className="text-xl mt-2">{slides[currentSlide].subCaption}</p>
-          {slides[currentSlide].tagline && <p className="text-lg mt-2 font-semibold">{slides[currentSlide].tagline}</p>}
-          <Link to="/contact" className="mt-4 inline-block bg-blue-500 text-white px-6 py-2 rounded-lg text-lg hover:bg-blue-600 transition">
-            Get in Touch
+      <section className="relative w-screen h-screen flex items-center justify-center text-center text-white bg-black">
+        <div className="absolute inset-0">
+          <img src={slides[0].image} alt="Hero Background" className="w-full h-full object-cover opacity-50" />
+        </div>
+        <div className="relative z-10">
+          <h1 className="text-5xl font-bold">{slides[0].caption}</h1>
+          <p className="text-xl mt-2">{slides[0].subCaption}</p>
+        </div>
+      </section>
+
+      {/* Who We Are Section */}
+      <section className="bg-white py-16 px-6 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-blue-600">Who We Are</h2>
+          <p className="text-gray-700 mt-4 leading-relaxed">
+            At <span className="font-semibold">Nexora</span>, we redefine digital experiences through cutting-edge solutions. 
+            Our team is dedicated to delivering innovative and scalable technology that empowers businesses to succeed in a rapidly evolving landscape.
+            Whether it's web development, AI-driven automation, or business intelligence, we bring expertise and passion to every project.
+          </p>
+          <Link to="/about" className="mt-4 inline-block bg-blue-500 text-white px-6 py-2 rounded-lg text-lg hover:bg-blue-600 transition">
+            Learn More
           </Link>
         </div>
       </section>
 
-      {/* About Us Section */}
-      <section className="bg-gray-100 py-16 px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-blue-600">Who We Are</h2>
-          <p className="text-gray-700 mt-4 leading-relaxed">
-            At <span className="font-semibold">Nexora</span>, we redefine digital experiences through cutting-edge solutions.
-          </p>
-        </div>
-      </section>
-
       {/* Services Section */}
-      <section className="py-16 px-6 bg-white text-center">
+      <section className="py-16 px-6 bg-gray-100 text-center">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-blue-600">Our Services</h2>
           <p className="text-gray-700 mt-4">Explore our innovative solutions that drive business success.</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             {services.map((service, index) => (
-              <div key={index} className="p-6 bg-gray-100 rounded-lg shadow-md">
-                <div className="mb-4 flex justify-center">{service.icon}</div>
+              <div key={index} className="p-6 bg-white rounded-lg shadow-lg flex flex-col items-center text-center">
+                <div className="mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold text-gray-800">{service.title}</h3>
                 <p className="text-gray-600 mt-2">{service.description}</p>
               </div>
@@ -168,44 +125,36 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <Testimonials />
-
       {/* Case Studies Section */}
-      <section className="py-16 px-6 bg-white text-center">
+      <section className="py-16 px-6 bg-white text-center w-screen">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-blue-600">Our Case Studies</h2>
-          <p className="text-gray-700 mt-4">See how we've transformed businesses with our solutions.</p>
-
-          {/* Filters */}
-          <div className="mt-6 flex justify-center space-x-4">
-            <button className="bg-gray-200 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-gray-300">
-              <FaFilter /> All
-            </button>
-            <button className="bg-gray-200 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-gray-300">
-              <FaBriefcase /> AI & Automation
-            </button>
-            <button className="bg-gray-200 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-gray-300">
-              <FaBriefcase /> Web Development
-            </button>
-          </div>
-
-          {/* Case Studies Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {caseStudies.map((study, index) => (
               <div key={index} className="p-6 bg-gray-100 rounded-lg shadow-md">
-                <img src={study.image} alt={study.title} className="rounded-lg mb-4 w-full h-40 object-cover" />
-                <h3 className="text-xl font-semibold text-gray-800">{study.title}</h3>
-                <p className="text-blue-600 font-medium">{study.category}</p>
+                <img src={study.image} alt={study.title} className="w-full h-40 object-cover rounded-md" />
+                <h3 className="text-xl font-semibold text-gray-800 mt-4">{study.title}</h3>
                 <p className="text-gray-600 mt-2">{study.description}</p>
-                <Link to={study.link} className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">View Case Study</Link>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <Link to="/case-studies" className="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded-lg text-lg hover:bg-blue-600 transition">
-            Explore More
-          </Link>
+      {/* Testimonials Section */}
+      <section className="bg-gray-100 py-16 px-6 text-center w-screen">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-blue-600 mb-10">What Our Clients Say</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="p-6 bg-white rounded-lg shadow-md text-center">
+                <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full object-cover border-2 border-blue-500 shadow-md mx-auto" />
+                <p className="text-gray-700 italic text-lg leading-relaxed">"{testimonial.quote}"</p>
+                <h3 className="text-xl font-semibold mt-4 text-gray-800">{testimonial.name}</h3>
+                <p className="text-gray-500">{testimonial.role}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>

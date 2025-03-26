@@ -53,7 +53,7 @@ const Careers = () => {
     });
 
     return (
-        <section className="p-8 text-center bg-gray-100 min-h-screen">
+        <section className="p-8 text-center bg-gray-100 min-h-screen w-screen">
             <h1 className="text-4xl font-bold mb-6">Careers</h1>
 
             {/* No Career Opportunities Message */}

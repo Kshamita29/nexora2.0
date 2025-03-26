@@ -24,7 +24,7 @@ const blogs = [
 
 const BlogPage = () => {
     return (
-        <section className="p-8 text-center bg-gray-100 min-h-screen">
+        <section className="p-8 text-center bg-gray-100 min-h-screen w-screen">
             <h1 className="text-4xl font-bold mb-6">Our Blog</h1>
             <div className="max-w-4xl mx-auto space-y-6">
                 {blogs.map((blog) => (
