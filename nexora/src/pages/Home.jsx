@@ -84,7 +84,7 @@ const Home = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 3000); // Slide change interval of 3 seconds
+    }, 5000); // Slide change interval of 5 seconds
     return () => clearInterval(interval);
   }, []);
 
