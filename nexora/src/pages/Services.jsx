@@ -15,9 +15,9 @@ const Services = () => {
 
     useEffect(() => {
         const updateVisibleCount = () => {
-            if (window.innerWidth >= 1024) setVisibleCount(3);
-            else if (window.innerWidth >= 768) setVisibleCount(2);
-            else setVisibleCount(1);
+            if (window.innerWidth >= 1024) setVisibleCount(3);  // 3 items for desktop
+            else if (window.innerWidth >= 768) setVisibleCount(2);  // 2 items for tablet
+            else setVisibleCount(1);  // 1 item for mobile
         };
 
         updateVisibleCount();
@@ -67,19 +67,24 @@ const Services = () => {
                 <h2 className="text-3xl font-bold text-blue-600 mb-8">What Our Clients Say</h2>
                 <div className="overflow-hidden relative">
                     <div
-                        ref={sliderRef}
                         className="flex transition-transform duration-500 ease-in-out"
                         style={{ transform: `translateX(-${index * (100 / visibleCount)}%)` }}
                     >
-                        {[...testimonials, ...testimonials.slice(0, visibleCount)].map((testimonial, i) => (
-                            <div key={i} className="min-w-[calc(100%/3)] md:min-w-[calc(100%/2)] sm:min-w-full p-4">
-                                <div className="bg-white shadow-lg rounded-lg border-b-4 border-blue-500 p-6 flex flex-col items-center min-h-[250px]">
-                                    <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full mb-4" />
-                                    <p className="text-gray-700 italic">"{testimonial.text}"</p>
-                                    <h4 className="mt-4 font-semibold">— {testimonial.name}</h4>
+                        <div className="flex gap-0 sm:gap-4 lg:gap-6 ">
+                            {/* Loop through the testimonials and display them */}
+                            {testimonials.map((testimonial, i) => (
+                                <div
+                                    key={i}
+                                    className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4 max-w-xs sm:max-w-sm lg:max-w-md mx-auto"  // Adjust width based on screen size
+                                >
+                                    <div className="bg-white shadow-lg rounded-lg border-b-4 border-blue-500 p-6 flex flex-col items-center min-h-[250px]">
+                                        <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full mb-4" />
+                                        <p className="text-gray-700 italic">"{testimonial.text}"</p>
+                                        <h4 className="mt-4 font-semibold">— {testimonial.name}</h4>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
