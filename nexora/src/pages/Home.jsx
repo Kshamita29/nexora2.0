@@ -1,5 +1,5 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FaCode, FaLightbulb, FaChartLine, FaCog } from "react-icons/fa";
 import bg1 from "../assets/bg1.jpg";
 import bg2 from "../assets/bg2.jpg";
@@ -79,16 +79,36 @@ const caseStudies = [
 ];
 
 const Home = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    }, 3000); // Slide change interval of 3 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
       <section className="relative w-screen h-screen flex items-center justify-center text-center text-white bg-black">
         <div className="absolute inset-0">
-          <img src={slides[0].image} alt="Hero Background" className="w-full h-full object-cover opacity-50" />
+          <img
+            src={slides[currentSlide].image}
+            alt="Hero Background"
+            className="w-full h-full object-cover opacity-50"
+          />
         </div>
         <div className="relative z-10">
-          <h1 className="text-5xl font-bold">{slides[0].caption}</h1>
-          <p className="text-xl mt-2">{slides[0].subCaption}</p>
+          <h1 className="text-5xl font-bold">{slides[currentSlide].caption}</h1>
+          <p className="text-xl mt-2">{slides[currentSlide].subCaption}</p>
+          {/* Get in Touch Button */}
+          <Link
+            to="/contact"
+            className="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-600 transition"
+          >
+            Get in Touch
+          </Link>
         </div>
       </section>
 
