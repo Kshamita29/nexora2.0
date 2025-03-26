@@ -33,7 +33,7 @@ const Services = () => {
     }, []);
 
     return (
-        <section className="p-8 w-screen">
+        <section className="p-8 w-screen bg-white">
             {/* Introduction */}
             <div className="max-w-4xl mx-auto text-center mt-12 px-6">
                 <h2 className="text-3xl font-bold text-blue-600">Innovative Solutions Tailored for Growth</h2>
@@ -45,12 +45,12 @@ const Services = () => {
             {/* Services Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">
                 {[
-                    { title: "Business Insights", icon: <FaChartLine className="text-blue-600 text-4xl mr-4" />, desc: "Empowering businesses with data-driven intelligence, we deliver actionable insights tailored for individual entrepreneurs and local organizations.", border: "border-blue-600" },
-                    { title: "Web Applications", icon: <FaLaptopCode className="text-green-600 text-4xl mr-4" />, desc: "We create dynamic e-business platforms designed to establish a strong online presence and expand global reach.", border: "border-green-600" },
-                    { title: "Software Security", icon: <FaShieldAlt className="text-red-600 text-4xl mr-4" />, desc: "Protecting your most sensitive and confidential data is our priority. We implement advanced database security, encryption, and firewall systems.", border: "border-red-600" },
-                    { title: "Enterprise Database Solutions", icon: <FaDatabase className="text-purple-600 text-4xl mr-4" />, desc: "We develop scalable, high-performance enterprise data warehouses that integrate and centralize organizational data.", border: "border-purple-600" },
-                    { title: "Research-Based Solutions", icon: <FaSearch className="text-yellow-600 text-4xl mr-4" />, desc: "We provide customized, industry-specific solutions backed by in-depth research and analytics.", border: "border-yellow-600" },
-                    { title: "24/7 Technical Support", icon: <FaHeadset className="text-indigo-600 text-4xl mr-4" />, desc: "Our commitment extends beyond development. We offer round-the-clock technical support throughout the contract period.", border: "border-indigo-600" }
+                    { title: "Business Insights", icon: <FaChartLine className="text-blue-600 text-4xl mr-4" />, desc: "Empowering businesses with data-driven intelligence, we deliver actionable insights tailored for individual entrepreneurs and local organizations.", border: "border-blue-600", text: "text-gray-700" },
+                    { title: "Web Applications", icon: <FaLaptopCode className="text-green-600 text-4xl mr-4" />, desc: "We create dynamic e-business platforms designed to establish a strong online presence and expand global reach.", border: "border-green-600", text: "text-gray-700"  },
+                    { title: "Software Security", icon: <FaShieldAlt className="text-red-600 text-4xl mr-4" />, desc: "Protecting your most sensitive and confidential data is our priority. We implement advanced database security, encryption, and firewall systems.", border: "border-red-600", text: "text-gray-700" },
+                    { title: "Enterprise Database Solutions", icon: <FaDatabase className="text-purple-600 text-4xl mr-4" />, desc: "We develop scalable, high-performance enterprise data warehouses that integrate and centralize organizational data.", border: "border-purple-600", text: "text-gray-700" },
+                    { title: "Research-Based Solutions", icon: <FaSearch className="text-yellow-600 text-4xl mr-4" />, desc: "We provide customized, industry-specific solutions backed by in-depth research and analytics.", border: "border-yellow-600",text: "text-gray-700" },
+                    { title: "24/7 Technical Support", icon: <FaHeadset className="text-indigo-600 text-4xl mr-4" />, desc: "Our commitment extends beyond development. We offer round-the-clock technical support throughout the contract period.", border: "border-indigo-600", text: "text-gray-700" }
                 ].map((service, index) => (
                     <div key={index} className={`p-6 bg-white shadow-lg rounded-lg border-l-4 ${service.border} flex items-start`}>
                         {service.icon}
@@ -80,7 +80,7 @@ const Services = () => {
                                     <div className="bg-white shadow-lg rounded-lg border-b-4 border-blue-500 p-6 flex flex-col items-center min-h-[250px]">
                                         <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full mb-4" />
                                         <p className="text-gray-700 italic">"{testimonial.text}"</p>
-                                        <h4 className="mt-4 font-semibold">— {testimonial.name}</h4>
+                                        <h4 className="mt-4 font-semibold text-gray-700">— {testimonial.name}</h4>
                                     </div>
                                 </div>
                             ))}

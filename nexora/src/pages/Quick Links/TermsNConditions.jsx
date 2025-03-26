@@ -4,7 +4,7 @@ const TermsAndConditions = () => {
     return (
         <section className="p-8 text-left w-screen bg-gray-100 min-h-screen">
             <div className="bg-white p-8 shadow-lg rounded-lg max-w-4xl mx-auto">
-                <h1 className="text-4xl font-bold mb-6 text-center">Terms and Conditions</h1>
+                <h1 className="text-4xl text-gray-700 font-bold mb-6 text-center">Terms and Conditions</h1>
                 
                 <p className="text-gray-700 mb-4">
                     Welcome to Nexora! These terms and conditions outline the rules and regulations for the use of our website and services.

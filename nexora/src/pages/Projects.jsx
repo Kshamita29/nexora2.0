@@ -36,7 +36,7 @@ const projects = [
 
 const Projects = () => {
     return (
-        <section className="p-8 text-center w-screen">
+        <section className="p-8 text-center w-screen bg-white">
             <h1 className="text-4xl font-bold">Our Projects</h1>
             <p className="mt-4 text-lg text-gray-700">Discover some of our innovative projects that redefine digital transformation.</p>
             
@@ -46,7 +46,7 @@ const Projects = () => {
                         <div className="mb-4 flex justify-center">
                             {project.icon}
                         </div>
-                        <h3 className="text-xl font-semibold">{project.name}</h3>
+                        <h3 className="text-xl text-gray-700 font-semibold">{project.name}</h3>
                         <p className="mt-2 text-gray-700 text-sm">{project.description}</p>
                         <a href="/404" className="mt-4 text-blue-600 underline">Learn More</a>
                     </div>

@@ -5,7 +5,7 @@ import { FaRocket, FaLightbulb, FaCode, FaGlobe } from "react-icons/fa";
 
 const Journey = () => {
     return (
-        <section className="p-8 w-screen">
+        <section className="p-8 w-screen bg-white">
             {/* Introduction */}
             <div className="max-w-4xl mx-auto text-center mt-12 px-6">
                 <h2 className="text-3xl font-bold text-blue-600">Our Journey</h2>

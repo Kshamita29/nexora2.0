@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import logo from "../../assets/NEXORA.png";
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -29,6 +30,9 @@ const Header = () => {
             <div className="flex items-center space-x-3">
                 <img src={logo} alt="Nexora Logo" className="h-10" />
             </div>
+
+            {/* Toggle button
+            <ThemeToggle /> */}
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex">

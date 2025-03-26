@@ -4,7 +4,7 @@ import { FaThumbsUp, FaLightbulb, FaUsers } from "react-icons/fa";
 
 const About = () => {
     return (
-        <section className="p-8 text-center">
+        <section className="p-8 text-center bg-white">
             <h1 className="text-4xl font-bold">About Us</h1>
             <p className="mt-4 text-lg text-gray-700">
                 The future belongs to those who dare to innovate, and at Nexora, we are shaping that future—one
@@ -32,15 +32,15 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">
                 <div className="p-6 shadow-md rounded-lg bg-white">
                     <h2 className="text-2xl font-semibold text-blue-600">Our Mission</h2>
-                    <p className="mt-2">To drive innovation and create seamless digital experiences for businesses worldwide.</p>
+                    <p className="mt-2 text-gray-700">To drive innovation and create seamless digital experiences for businesses worldwide.</p>
                 </div>
                 <div className="p-6 shadow-md rounded-lg bg-white">
                     <h2 className="text-2xl font-semibold text-blue-600">Our Vision</h2>
-                    <p className="mt-2">To be the leading platform that transforms possibilities into digital realities.</p>
+                    <p className="mt-2 text-gray-700">To be the leading platform that transforms possibilities into digital realities.</p>
                 </div>
                 <div className="p-6 shadow-md rounded-lg bg-white">
                     <h2 className="text-2xl font-semibold text-blue-600">Our Values</h2>
-                    <p className="mt-2">Innovation, Excellence, Integrity, and Customer-Centricity.</p>
+                    <p className="mt-2 text-gray-700">Innovation, Excellence, Integrity, and Customer-Centricity.</p>
                 </div>
             </div>
 
@@ -50,17 +50,17 @@ const About = () => {
                 <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 place-items-center">
                     <div className="p-6 bg-white shadow-md rounded-lg text-center">
                         <FaThumbsUp className="text-blue-600 text-4xl mb-4 mx-auto" />
-                        <h3 className="text-xl font-semibold">Proven Expertise</h3>
+                        <h3 className="text-xl text-gray-700 font-semibold">Proven Expertise</h3>
                         <p className="mt-2 text-gray-700 text-sm">With years of experience, our team delivers innovative and effective solutions for businesses of all sizes.</p>
                     </div>
                     <div className="p-6 bg-white shadow-md rounded-lg text-center">
                         <FaLightbulb className="text-green-600 text-4xl mb-4 mx-auto" />
-                        <h3 className="text-xl font-semibold">Innovative Approach</h3>
+                        <h3 className="text-xl text-gray-700 font-semibold">Innovative Approach</h3>
                         <p className="mt-2 text-gray-700 text-sm">We stay ahead of trends and leverage cutting-edge technologies to keep you competitive.</p>
                     </div>
                     <div className="p-6 bg-white shadow-md rounded-lg text-center">
                         <FaUsers className="text-red-600 text-4xl mb-4 mx-auto" />
-                        <h3 className="text-xl font-semibold">Customer-Centric</h3>
+                        <h3 className="text-xl text-gray-700 font-semibold">Customer-Centric</h3>
                         <p className="mt-2 text-gray-700 text-sm">We prioritize client success, offering personalized services and ongoing support.</p>
                     </div>
                 </div>
