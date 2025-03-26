@@ -102,6 +102,10 @@ const Home = () => {
         <div className="relative z-10">
           <h1 className="text-5xl font-bold">{slides[currentSlide].caption}</h1>
           <p className="text-xl mt-2">{slides[currentSlide].subCaption}</p>
+          {/* Tagline */}
+          {slides[currentSlide].tagline && (
+            <p className="text-lg italic mt-2">{slides[currentSlide].tagline}</p>
+          )}
           {/* Get in Touch Button */}
           <Link
             to="/contact"
