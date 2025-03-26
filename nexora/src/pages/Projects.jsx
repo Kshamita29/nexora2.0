@@ -37,7 +37,7 @@ const projects = [
 const Projects = () => {
     return (
         <section className="p-8 text-center w-screen bg-white">
-            <h1 className="text-4xl font-bold">Our Projects</h1>
+            <h1 className="text-4xl text-gray-700 font-bold">Our Projects</h1>
             <p className="mt-4 text-lg text-gray-700">Discover some of our innovative projects that redefine digital transformation.</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto">

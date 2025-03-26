@@ -35,7 +35,7 @@ const Support = () => {
 
     return (
         <section className="p-8 text-center w-screen bg-gray-100 min-h-screen">
-            <h1 className="text-4xl text-gray-700 font-bold mb-6">Support & FAQs</h1>
+            <h1 className="text-4xl text-black font-bold mb-6">Support & FAQs</h1>
             
             {/* FAQs Section */}
             <div className="bg-white p-8 shadow-lg rounded-lg max-w-4xl mx-auto">

@@ -5,7 +5,7 @@ import { FaThumbsUp, FaLightbulb, FaUsers } from "react-icons/fa";
 const About = () => {
     return (
         <section className="p-8 text-center bg-white">
-            <h1 className="text-4xl font-bold">About Us</h1>
+            <h1 className="text-4xl text-gray-700 font-bold">About Us</h1>
             <p className="mt-4 text-lg text-gray-700">
                 The future belongs to those who dare to innovate, and at Nexora, we are shaping that future—one
                 breakthrough at a time.

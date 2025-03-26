@@ -106,7 +106,7 @@ const Journey = () => {
 
             {/* Call-to-Action */}
             <div className="text-center mt-12">
-                <h2 className="text-3xl font-bold">Be a Part of Our Story</h2>
+                <h2 className="text-3xl text-black font-bold">Be a Part of Our Story</h2>
                 <p className="mt-2 text-lg text-gray-700">Join us as we redefine the future of digital transformation.</p>
                 <a href="/contact" className="mt-4 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition">
                     Get in Touch

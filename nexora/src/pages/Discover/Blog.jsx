@@ -25,11 +25,11 @@ const blogs = [
 const BlogPage = () => {
     return (
         <section className="p-8 text-center bg-gray-100 min-h-screen w-screen">
-            <h1 className="text-4xl text-gray-700 font-bold mb-6">Our Blog</h1>
+            <h1 className="text-4xl text-blue-600 font-bold mb-6">Our Blog</h1>
             <div className="max-w-4xl mx-auto space-y-6">
                 {blogs.map((blog) => (
                     <div key={blog.id} className="bg-white p-6 shadow-lg rounded-lg text-left">
-                        <h2 className="text-2xl font-semibold text-blue-600 mb-2">{blog.title}</h2>
+                        <h2 className="text-2xl font-semibold text-gray-600 mb-2">{blog.title}</h2>
                         <p className="text-gray-700 mb-4">{blog.description}</p>
                         <Link 
                             to={blog.link} 

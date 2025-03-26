@@ -54,7 +54,7 @@ const Careers = () => {
 
     return (
         <section className="p-8 text-center bg-gray-100 min-h-screen w-screen">
-            <h1 className="text-4xl text-gray-700 font-bold mb-6">Careers</h1>
+            <h1 className="text-4xl text-blue-600 font-bold mb-6">Careers</h1>
 
             {/* No Career Opportunities Message */}
             <p className="text-lg text-gray-700 mb-6">
